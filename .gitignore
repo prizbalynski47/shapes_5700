@@ -1,0 +1,35 @@
+# ========================================
+# Gradle
+.gradle/
+build/
+
+# Local Gradle Wrapper files
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
+
+# ========================================
+# Kotlin/Java build output
+/out/
+/bin/
+/classes/
+
+# ========================================
+# IntelliJ IDEA / Android Studio
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# ========================================
+# OS & editor cruft
+.DS_Store
+Thumbs.db
+
+# ========================================
+# Log files & temp
+*.log
+*.tmp
+
+# ========================================
+# Kotlin-specific (optional)
+*.kotlin_module
