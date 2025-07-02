@@ -20,5 +20,5 @@ tasks.test {
 }
 
 tasks.withType<KotlinCompile>() {
-    kotlinOptions.jvmTarget = "10"
+    kotlinOptions.jvmTarget = "17"
 }

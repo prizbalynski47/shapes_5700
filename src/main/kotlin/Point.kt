@@ -1,22 +1,22 @@
 class Point (
-    val x: Double,
-    val y: Double
+    private var x: Double,
+    private var y: Double
 ) {
 
-    fun getX() {
+    fun getX(): Double {
         return x
     }
 
-    fun getY() {
+    fun getY(): Double {
         return y
     }
 
-    fun clone() {
+    fun clone(): Point {
         return Point(x, y)
     }
 
-    fun Move(xOffset: Double, yOffset: Double) {
-        x = x + xOffset
-        y = y + yOffset
+    fun move(xOffset: Double, yOffset: Double) {
+        x += xOffset
+        y += yOffset
     }
 }
