@@ -13,7 +13,8 @@ class Line(
     }
 
     fun length(): Double {
-        return (sqrt(point1.getX() * point1.getX() + point1.getY() * point1.getY()))
+        return (sqrt((point1.getX() - point2.getX()) * (point1.getX() - point2.getX()) +
+                (point1.getY() - point2.getY()) * (point1.getY() - point2.getY())))
     }
 
     override fun move(xOffset: Double, yOffset: Double) {
