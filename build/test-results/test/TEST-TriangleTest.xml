@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="TriangleTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2025-07-02T03:00:38" hostname="LAPTOP-3K11F5LJ" time="0.08">
+  <properties/>
+  <testcase name="testMove" classname="TriangleTest" time="0.021"/>
+  <testcase name="testGetArea" classname="TriangleTest" time="0.0"/>
+  <testcase name="testAreaNotZero1" classname="TriangleTest" time="0.053"/>
+  <testcase name="testAreaNotZero2" classname="TriangleTest" time="0.001"/>
+  <testcase name="testGetAttributes" classname="TriangleTest" time="0.004"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
