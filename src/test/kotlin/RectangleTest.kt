@@ -1,7 +1,4 @@
-import kotlin.test.Test
-import kotlin.test.assertEquals
-import kotlin.test.assertFailsWith
-import kotlin.test.assertNotSame
+import kotlin.test.*
 
 class RectangleTest {
 
@@ -21,6 +18,8 @@ class RectangleTest {
         val exception = assertFailsWith<IllegalArgumentException> {
             Rectangle(p1, p2)
         }
+
+        assertTrue(exception.message!!.contains("greater than zero"))
     }
 
     @Test

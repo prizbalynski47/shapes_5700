@@ -3,7 +3,7 @@ open class Rectangle(
     private val point2: Point
 ) : Shape() {
     private val area: Double =
-        (point1.getX() - point2.getX()) * (point1.getY() - point2.getY()).let {if (it < 0) -it else it}
+        ((point1.getX() - point2.getX()) * (point1.getY() - point2.getY())).let {if (it < 0) -it else it}
 
     init {
         require(area > 0) {
