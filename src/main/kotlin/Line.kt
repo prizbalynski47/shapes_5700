@@ -8,8 +8,13 @@ class Line(
         return ShapeAttributes.TwoPoints(point1.clone(), point2.clone())
     }
 
-    fun slope(): Double {
-        return (point1.getY() - point2.getY()) / (point1.getX() - point2.getX())
+    fun slope(): Double? {
+        val dx = point1.getX() - point2.getX()
+        if (dx == 0.0) {
+            return null // slope is undefined for vertical line
+        }
+        val slope = (point1.getY() - point2.getY()) / dx
+        return if (slope == -0.0) 0.0 else slope
     }
 
     fun length(): Double {
