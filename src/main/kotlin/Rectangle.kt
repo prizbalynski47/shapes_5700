@@ -1,4 +1,4 @@
-class Rectangle(
+open class Rectangle(
     private val point1: Point,
     private val point2: Point
 ) : Shape() {
