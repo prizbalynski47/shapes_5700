@@ -1,3 +1,3 @@
 
-rootProject.name = "shapes"
+rootProject.name = "D5700Emulator"
 
