@@ -1,5 +1,5 @@
 abstract class InstructionTemplate(
-    val cpu: CPU
+    val computer: Computer
 ) {
     fun execute(byte1: Int, byte2: Int) {
         val operands = splitBytes(byte1, byte2)
@@ -10,6 +10,6 @@ abstract class InstructionTemplate(
     protected abstract fun splitBytes(byte1: Int, byte2: Int): List<Int>
     protected abstract fun performOperation(operands: List<Int>)
     protected open fun incrementProgramCounter() {
-        cpu.incrementP()
+        computer.cpu.incrementP()
     }
 }

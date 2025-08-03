@@ -47,6 +47,10 @@ class CPU {
         A = address
     }
 
+    fun getA(): Int {
+        return A
+    }
+
     fun toggleM() {
         M = !M
     }

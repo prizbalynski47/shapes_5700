@@ -1,4 +1,4 @@
-class AddInstruction(computer: Computer) : InstructionTemplate(computer) {
+class SubInstruction(computer: Computer) : InstructionTemplate(computer) {
     override fun splitBytes(byte1: Int, byte2: Int): List<Int> {
         return SplitBothByteManager().splitBytes(byte1, byte2)
     }
@@ -7,8 +7,8 @@ class AddInstruction(computer: Computer) : InstructionTemplate(computer) {
         val register1 = operands[1]
         val register2 = operands[2]
         val register3 = operands[3]
-        val sum = computer.cpu.getRegister(register1) + computer.cpu.getRegister(register2)
-        val maskedSum = sum and 0xFF
-        computer.cpu.setRegister(register3, maskedSum)
+        val diff = computer.cpu.getRegister(register1) - computer.cpu.getRegister(register2)
+        val maskedDiff = diff and 0xFF
+        computer.cpu.setRegister(register3, maskedDiff)
     }
 }
