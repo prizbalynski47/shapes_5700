@@ -21,6 +21,9 @@ class CPU {
     }
 
     fun setP(address: Int) {
+        if(address % 2 != 0) {
+            error("Program counter must be set to an even address")
+        }
         P = address
     }
 

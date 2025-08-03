@@ -5,8 +5,7 @@ class RAM {
         return instructions[address]
     }
 
-    fun writeByte(address: Int, value: Int): Boolean {
+    fun writeByte(address: Int, value: Int){
         instructions[address] = value
-        return true
     }
 }

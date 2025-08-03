@@ -5,7 +5,7 @@ class ROM {
         return instructions[address]
     }
 
-    fun writeByte(address: Int, value: Int): Boolean {
-        return false
+    fun writeByte(address: Int, value: Int){
+        error("ROM chips do not currently support write instructions")
     }
 }

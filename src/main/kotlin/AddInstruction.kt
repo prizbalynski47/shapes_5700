@@ -7,8 +7,8 @@ class AddInstruction(computer: Computer) : InstructionTemplate(computer) {
         val register1 = operands[1]
         val register2 = operands[2]
         val register3 = operands[3]
-        val sum = computer.cpu.getRegister(register1) + computer.cpu.getRegister(register2)
+        val sum = computer.getRegister(register1) + computer.getRegister(register2)
         val maskedSum = sum and 0xFF
-        computer.cpu.setRegister(register3, maskedSum)
+        computer.setRegister(register3, maskedSum)
     }
 }
