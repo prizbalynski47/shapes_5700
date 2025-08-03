@@ -5,11 +5,7 @@ class ReadInstruction(computer: Computer) : InstructionTemplate(computer) {
 
     override fun performOperation(operands: List<Int>) {
         val register = operands[1]
-        val address = computer.cpu.getA()
-        if(computer.cpu.getM()) {
-            computer.cpu.setRegister(register, computer.rom.readByte(address))
-        } else {
-            computer.cpu.setRegister(register, computer.ram.readByte(address))
-        }
+        val address = computer.getA()
+        computer.setRegister(register, computer.readByte(address))
     }
 }

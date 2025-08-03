@@ -7,8 +7,8 @@ class SubInstruction(computer: Computer) : InstructionTemplate(computer) {
         val register1 = operands[1]
         val register2 = operands[2]
         val register3 = operands[3]
-        val diff = computer.cpu.getRegister(register1) - computer.cpu.getRegister(register2)
+        val diff = computer.getRegister(register1) - computer.getRegister(register2)
         val maskedDiff = diff and 0xFF
-        computer.cpu.setRegister(register3, maskedDiff)
+        computer.setRegister(register3, maskedDiff)
     }
 }

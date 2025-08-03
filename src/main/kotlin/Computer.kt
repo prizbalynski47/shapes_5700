@@ -50,15 +50,15 @@ class Computer(
         return cpu.getM()
     }
 
-    fun readByte(address: Int, romSelected: Boolean): Int {
-        if (romSelected) {
+    fun readByte(address: Int): Int {
+        if (getM()) {
             return rom.readByte(address)
         }
         return ram.readByte(address)
     }
 
-    fun writeByte(address: Int, value: Int, romSelected: Boolean){
-        if (romSelected) {
+    fun writeByte(address: Int, value: Int){
+        if (cpu.getM()) {
             rom.writeByte(address, value)
         } else {
             ram.writeByte(address, value)

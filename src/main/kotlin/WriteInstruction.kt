@@ -4,12 +4,8 @@ class WriteInstruction(computer: Computer) : InstructionTemplate(computer) {
     }
 
     override fun performOperation(operands: List<Int>) {
-        val value = computer.cpu.getRegister(operands[1])
-        val address = computer.cpu.getA()
-        if(computer.cpu.getM()) {
-            computer.rom.writeByte(address, value)
-        } else {
-            computer.ram.writeByte(address, value)
-        }
+        val value = computer.getRegister(operands[1])
+        val address = computer.getA()
+        computer.writeByte(address, value)
     }
 }
