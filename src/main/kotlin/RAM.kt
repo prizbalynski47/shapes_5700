@@ -1,11 +1,11 @@
 class RAM {
-    private val instructions: Array<Int> = Array<Int>(4000) {0}
+    private val memoryArray: Array<Int> = Array<Int>(4000) {0}
 
     fun readByte(address: Int): Int {
-        return instructions[address]
+        return memoryArray[address]
     }
 
     fun writeByte(address: Int, value: Int){
-        instructions[address] = value
+        memoryArray[address] = value
     }
 }

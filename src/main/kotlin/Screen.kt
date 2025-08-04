@@ -14,10 +14,11 @@ class Screen {
         var outString: String = ""
         for (row in 0 until numRows) {
             for (col in 0 until numCols) {
-                outString += screenRam[(row * numCols) + col] + " "
+                outString += screenRam[(row * numCols) + col]
             }
             outString += "\n"
         }
+        outString += "=========\n"
         print(outString)
     }
 }

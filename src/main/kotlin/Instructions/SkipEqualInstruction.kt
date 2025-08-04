@@ -1,3 +1,8 @@
+package Instructions
+
+import Computer
+import SplitBothByteManager
+
 class SkipEqualInstruction(computer: Computer) : InstructionTemplate(computer) {
     override fun splitBytes(byte1: Int, byte2: Int): List<Int> {
         return SplitBothByteManager().splitBytes(byte1, byte2)

@@ -1,10 +1,31 @@
+import Instructions.AddInstruction
+import Instructions.ConvertByteToAsciiInstruction
+import Instructions.ConvertToBase10Instruction
+import Instructions.DrawInstruction
+import Instructions.JumpInstruction
+import Instructions.ReadInstruction
+import Instructions.ReadKeyboardInstruction
+import Instructions.ReadTInstruction
+import Instructions.SetAInstruction
+import Instructions.SetTInstruction
+import Instructions.SkipEqualInstruction
+import Instructions.SkipNotEqualInstruction
+import Instructions.StoreInstruction
+import Instructions.SubInstruction
+import Instructions.SwitchMemoryInstruction
+import Instructions.WriteInstruction
+
 class Computer(
-    private val cpu: CPU,
-    private val ram: RAM,
-    private val rom: ROM,
-    private val screen: Screen,
 ) {
+    private val cpu = CPU()
+    private val rom = ROM()
+    private val ram = RAM()
+    private val screen = Screen()
     private val instructionHandler = InstructionHandler { readAndExecuteInstruction() }
+
+    fun run() {
+        instructionHandler.startExecution()
+    }
 
     fun getRegister(register: Int): Int {
         return cpu.getRegister(register)
@@ -65,10 +86,15 @@ class Computer(
         }
     }
 
-    protected fun readAndExecuteInstruction() {
+    private fun readAndExecuteInstruction() {
         val p = cpu.getP()
         val byte1 = rom.readByte(p)
         val byte2 = rom.readByte(p+1)
+        if (byte1 == byte2 && byte1 == 0x00) {
+            instructionHandler.shutdown()
+            cpu.shutdownTimer()
+            return
+        }
         val instructionType = byte1 shr 4
         val instruction = when (instructionType) {
             0x0 -> StoreInstruction(this)
@@ -98,5 +124,14 @@ class Computer(
 
     fun resume() {
         instructionHandler.resume()
+    }
+
+    fun printToScreen(character: Int, row: Int, col: Int) {
+        screen.setChar(character, row, col)
+        screen.printScreen()
+    }
+
+    fun loadRomFromBytes(bytes: ByteArray) {
+        rom.loadFromBytes(bytes)
     }
 }

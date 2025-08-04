@@ -37,9 +37,7 @@ class CPU {
 
     fun setT(time: Int) {
         T = time
-        if (T > 0 && (timerFuture == null || timerFuture?.isCancelled == true)) {
-            startTimer()
-        }
+        restartTimerIfNeeded()
     }
 
     fun getT(): Int {
@@ -62,20 +60,29 @@ class CPU {
         return M
     }
 
+    private fun restartTimerIfNeeded() {
+        timerFuture?.cancel(true)
+        timerFuture = null
+
+        if (T > 0) {
+            startTimer()
+        }
+    }
+
     private fun startTimer() {
         timerFuture = timerExecutor.scheduleAtFixedRate({
             synchronized(this) {
                 if (T > 0) {
                     T--
                 } else {
-                    stopTimer()
+                    timerFuture?.cancel(true)
+                    timerFuture = null
                 }
             }
         }, 0, 1000L / 60L, TimeUnit.MILLISECONDS)
     }
 
-    fun stopTimer() {
-        timerFuture?.cancel(true)
-        timerFuture = null
+    fun shutdownTimer() {
+        timerExecutor.shutdown()
     }
 }
